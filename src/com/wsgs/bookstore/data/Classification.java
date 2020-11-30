@@ -4,6 +4,9 @@ public class Classification {
     private int classificationID;
     String classificationName;
 
+    public Classification() {
+    }
+
     public int getClassificationID() {
         return classificationID;
     }

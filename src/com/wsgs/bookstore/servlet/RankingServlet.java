@@ -25,13 +25,12 @@ public class RankingServlet extends HttpServlet {
         if (currPage == null || "".equals(currPage.trim())){
             currPage = "1";//第一次访问时页数设为1
         }
-
         int currentPage = Integer.parseInt(currPage);
 
         PageBean<Book> pageBean = new PageBean<>();
         pageBean.setCurrentPage(currentPage);;
 
-        pageBean.setCondition(" ORDER BY  sellNumber DESC ");
+        pageBean.setCondition(" ORDER BY sellNumber DESC ");
 
         BookDao book = new BookImpl();
         book.querysAll(pageBean);

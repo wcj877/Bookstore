@@ -18,7 +18,7 @@
     <div id="TitleArea_Head"></div>
     <div id="TitleArea_Title">
         <div id="TitleArea_Title_Content">
-            <img border="0" width="13" height="13" src="${pageContext.request.contextPath}/admin/public/style/images/title_arrow.gif"> 添加新图书
+            <img border="0" width="13" height="13" src="${pageContext.request.contextPath}/admin/public/style/images/title_arrow.gif"> 修改图书
         </div>
     </div>
     <div id="TitleArea_End"></div>
@@ -27,7 +27,7 @@
 <!-- 主内容区域（数据列表或表单显示） -->
 <div id="MainArea">
     <!-- 表单内容 -->
-    <form action="${pageContext.request.contextPath}/BookServlet?method=add" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/BookServlet?method=update" method="post" >
         <!-- 本段标题（分段标题） -->
         <div class="ItemBlock_Title">
             <img width="4" height="7" border="0" src="${pageContext.request.contextPath}/admin/public/style/images/item_point.gif"> 图书信息&nbsp;
@@ -38,47 +38,48 @@
                 <div class="ItemBlock2">
                     <table cellpadding="0" cellspacing="0" class="mainForm">
                         <tbody>
+                        <c:set value="${sessionScope.book}" var="book"/>
                         <tr>
                             <td width="80px">图书分类</td>
                             <td>
                                 <select name="classificationId" style="width:80px">
                                     <c:forEach items="${applicationScope.classificationList}" var="classification">
-                                        <option value="${classification.classificationID}">${classification.classificationName}</option>
+                                    <option value="${classification.classificationID}"<c:if test="${applicationScope.classificationID == bool.classificationId}">"selected"</c:if> > ${classification.classificationName}</option>
                                     </c:forEach>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td width="80px">图书名</td>
-                            <td><input type="text" name="bookName" class="InputStyle" value=""> *</td>
+                            <td><input type="text" name="bookName" class="InputStyle" value="${book.bookName}"> *</td>
                         </tr>
                         <tr>
                             <td>价格</td>
-                            <td><input type="text" name="price" class="InputStyle" value=""> *</td>
+                            <td><input type="text" name="price" class="InputStyle" value="${book.price}"> *</td>
                         </tr>
                         <tr>
                             <td>作者</td>
-                            <td><input type="text" name="writer" class="InputStyle" value=""> *</td>
+                            <td><input type="text" name="writer" class="InputStyle" value="${book.writer}"> *</td>
                         </tr>
 
                         <tr>
                             <td>上架时间</td>
-                            <td><input name="putTime" class="InputStyle"/> *</td>
+                            <td><input name="putTime" class="InputStyle" value="${book.putTime}" /> *</td>
                         </tr>
 
                         <tr>
                             <td>出版时间</td>
-                            <td><input name="outTime" class="InputStyle"/> *</td>
+                            <td><input name="outTime" class="InputStyle" value="${book.outTime}" /> *</td>
                         </tr>
 
                         <tr>
                             <td>简介</td>
-                            <td><textarea name="intro" class="TextareaStyle"></textarea></td>
+                            <td><textarea name="intro" class="TextareaStyle" > ${book.intro}</textarea></td>
                         </tr>
                         <tr>
                             <td width="80px">图书图片</td>
                             <td>
-                                <input type="file" name="url"> *
+                                <img src="${book.url}">
                             </td>
                         </tr>
                         </tbody>

@@ -5,6 +5,7 @@ import com.wsgs.bookstore.data.Book;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import com.wsgs.bookstore.utils.PageBean;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -72,6 +73,9 @@ public class BookImpl implements BookDao {
 
         StringBuilder sb = new StringBuilder();
         sb.append(" SELECT * FROM book");
+        if (pb.getCondition() != null){
+            sb.append(pb.getCondition());
+        }
         sb.append(" limit ?,? ");
         List<Object> list = new ArrayList<Object>();
         list.add(index);
@@ -103,6 +107,16 @@ public class BookImpl implements BookDao {
             return count.intValue();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Book getBook(String bookID) {
+        String sql = "select * from book where bookID = ?";
+        try {
+            return queryRunner.query(sql, new BeanHandler<Book>(Book.class), bookID);
+        } catch (SQLException e) {
+            throw new RuntimeException();
         }
     }
 }

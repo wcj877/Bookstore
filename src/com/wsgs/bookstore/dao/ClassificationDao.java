@@ -32,5 +32,5 @@ public interface ClassificationDao {
      * 获取图书类别
      * @param
      */
-    List<Classification> getBookAll();
+    List<Classification> getAll();
 }

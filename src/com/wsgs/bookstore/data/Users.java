@@ -8,6 +8,9 @@ public class Users {
     double money;
     String address;
 
+    public Users() {
+    }
+
     public String getUserID() {
         return userID;
     }

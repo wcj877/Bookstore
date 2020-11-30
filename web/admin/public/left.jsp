@@ -1,7 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
 <head>
 	<title>Frame left</title>
@@ -92,16 +91,16 @@ body {
 			</div>
             <ul class="MenuLevel2">
             	<li class="level2 level2Style">
-                    <a target="right" >餐桌管理</a>
+                    <a target="right" href="${pageContext.request.contextPath}/BookServlet?method=querysAll">图书管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" >菜系管理</a>
+                	<a target="right" >图书分类管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" >菜品管理</a>
+                	<a target="right" >订单管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.request.contextPath }/order?method=getOrderList">餐厅订单</a>
+                	<a target="right" >推荐图书管理</a>
 				</li>
             </ul>
         </li>

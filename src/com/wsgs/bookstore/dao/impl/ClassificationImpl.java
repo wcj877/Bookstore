@@ -45,7 +45,7 @@ public class ClassificationImpl implements ClassificationDao {
     }
 
     @Override
-    public List<Classification> getBookAll() {
+    public List<Classification> getAll() {
         String sql = "select * from classification";
         try {
             return queryRunner.query(sql, new BeanListHandler<Classification>(Classification.class));

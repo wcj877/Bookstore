@@ -15,6 +15,9 @@ public class Book {
     private int sellNumber;
     private int isRecommend;
 
+    public Book() {
+    }
+
     public int getBookId() {
         return bookId;
     }

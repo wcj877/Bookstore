@@ -6,6 +6,9 @@ public class OrderDetail {
     int bookID;
     int number;
 
+    public OrderDetail() {
+    }
+
     public int getDetailID() {
         return detailID;
     }

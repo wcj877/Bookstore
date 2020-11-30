@@ -8,6 +8,9 @@ public class Orders {
     String orderTime;
     String orderStatus;
 
+    public Orders() {
+    }
+
     public int getOrderID() {
         return OrderID;
     }

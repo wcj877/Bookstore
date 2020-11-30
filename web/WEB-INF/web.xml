@@ -11,7 +11,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -24,6 +24,6 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>/admin/index.jsp</welcome-file>
+        <welcome-file>/commons/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

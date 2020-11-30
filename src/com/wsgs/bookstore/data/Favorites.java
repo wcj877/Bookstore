@@ -5,6 +5,9 @@ public class Favorites {
     int bookID;
     String userID;
 
+    public Favorites() {
+    }
+
     public int getFavoritesID() {
         return favoritesID;
     }
