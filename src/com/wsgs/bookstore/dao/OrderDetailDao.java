@@ -1,7 +1,6 @@
 package com.wsgs.bookstore.dao;
 
-import com.wsgs.bookstore.data.OrderDetail;
-import com.wsgs.bookstore.utils.PageBean;
+import com.wsgs.bookstore.entity.OrderDetail;
 
 import java.util.List;
 
@@ -17,6 +16,6 @@ public interface OrderDetailDao {
      * 获取查询的订单详情
      * @param
      */
-    List<OrderDetail> querysAll(int orderID);
+    List<OrderDetail> querysAll(String orderId);
 
 }

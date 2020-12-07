@@ -1,15 +1,24 @@
 package com.wsgs.bookstore.servlet;
 
+import com.wsgs.bookstore.dao.ClassificationDao;
+import com.wsgs.bookstore.dao.impl.ClassificationImpl;
+import com.wsgs.bookstore.entity.Classification;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ClassificationServlet" , urlPatterns = "/ClassificationServlet")
 public class ClassificationServlet extends HttpServlet {
+
+    ClassificationDao dao = new ClassificationImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         doGet(request, response);
     }
 
@@ -20,33 +29,44 @@ public class ClassificationServlet extends HttpServlet {
             this.add(request,response);
         } else if ("update".equals(method)){
             this.update(request,response);
-        } else if ("querysAll".equals(method)){
-            this.querysAll(request, response);
-        } else if ("getBook".equals(method)){
-            this.getBook(request, response);
+        } else if ("getClassification".equals(method)){
+            this.getClassification(request, response);
         } else if ("delete".equals(method)){
             this.delete(request, response);
+        } else if ("showAll".equals(method)){
+            this.showAll(request, response);
         }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
-
+    private void showAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Classification> classificationList = dao.getAll();
+        request.getServletContext().setAttribute("classificationList", classificationList);
+        request.getRequestDispatcher("/admin/classification/classification.jsp").forward(request, response);
     }
 
-    private void getBook(HttpServletRequest request, HttpServletResponse response) {
-
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        dao.delete(request.getParameter("classificationId"));
+        this.showAll(request, response);
     }
 
-    private void querysAll(HttpServletRequest request, HttpServletResponse response) {
-
+    private void getClassification(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("classification",dao.getClassification(request.getParameter("classificationId")));
+        request.getRequestDispatcher("/admin/classification/updateClassification.jsp").forward(request, response);
     }
 
-    private void update(HttpServletRequest request, HttpServletResponse response) {
-
+    private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Classification classification = new Classification();
+        classification.setClassificationID(Integer.parseInt(request.getParameter("classificationId")));
+        classification.setClassificationName(request.getParameter("classificationName"));
+        dao.update(classification);
+        this.showAll(request, response);
     }
 
-    private void add(HttpServletRequest request, HttpServletResponse response) {
-
+    private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Classification classification = new Classification();
+        classification.setClassificationName(request.getParameter("classificationName"));
+        dao.add(classification);
+        this.showAll(request, response);
     }
 
 

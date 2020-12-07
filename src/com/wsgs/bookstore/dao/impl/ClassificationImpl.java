@@ -1,9 +1,10 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.ClassificationDao;
-import com.wsgs.bookstore.data.Classification;
+import com.wsgs.bookstore.entity.Classification;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -35,7 +36,7 @@ public class ClassificationImpl implements ClassificationDao {
     }
 
     @Override
-    public void delete(int classificationID) {
+    public void delete(String classificationID) {
         String sql ="DELETE FROM classification WHERE classificationID=?";
         try {
             queryRunner.update(sql,classificationID);
@@ -49,6 +50,16 @@ public class ClassificationImpl implements ClassificationDao {
         String sql = "select * from classification";
         try {
             return queryRunner.query(sql, new BeanListHandler<Classification>(Classification.class));
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
+    public Classification getClassification(String classificationId) {
+        String sql = "select * from classification where classificationId = ?";
+        try {
+            return queryRunner.query(sql, new BeanHandler<Classification>(Classification.class), classificationId);
         } catch (SQLException e) {
             throw new RuntimeException();
         }

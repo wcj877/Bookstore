@@ -1,8 +1,7 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.OrdersDao;
-import com.wsgs.bookstore.data.Book;
-import com.wsgs.bookstore.data.Orders;
+import com.wsgs.bookstore.entity.Orders;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import com.wsgs.bookstore.utils.PageBean;
 import org.apache.commons.dbutils.QueryRunner;
@@ -21,7 +20,7 @@ public class OrdersImpl implements OrdersDao {
     public void add(Orders order) {
         String sql =" INSERT orders(userID, orderTime, orderStatus) VALUES(?,?,?)";
         try {
-            queryRunner.update(sql, order.getUserID(), order.getOrderTime(), order.getOrderStatus());
+            queryRunner.update(sql, order.getUserId(), order.getOrderTime(), order.getOrderStatus());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -32,7 +31,7 @@ public class OrdersImpl implements OrdersDao {
         String sql =" update Order set orderStatus=? " +
                 "where orderID = ?";
         try {
-            queryRunner.update(sql, order.getOrderStatus(), order.getOrderID());
+            queryRunner.update(sql, order.getOrderStatus(), order.getOrderId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +60,10 @@ public class OrdersImpl implements OrdersDao {
         int count = pb.getPageCount(); // 查询返回的行数
 
         StringBuilder sb = new StringBuilder();
-        sb.append(" SELECT * FROM orders");
+        sb.append(" select orders.orderID, orders.userID, orders.orderTime, orderStatus ,SUM(price*number) as totalAmount  " +
+                "from OrderDetail,book,orders  " +
+                "where book.bookID=orderdetail.bookID AND orders.orderID=orderdetail.orderID  " +
+                "GROUP BY orders.orderID");
         sb.append(" limit ?,? ");
         List<Object> list = new ArrayList<Object>();
         list.add(index);

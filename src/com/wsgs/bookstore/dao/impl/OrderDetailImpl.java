@@ -1,11 +1,10 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.OrderDetailDao;
-import com.wsgs.bookstore.data.Classification;
-import com.wsgs.bookstore.data.OrderDetail;
+import com.wsgs.bookstore.entity.OrderDetail;
 import com.wsgs.bookstore.utils.JDBCUtils;
-import com.wsgs.bookstore.utils.PageBean;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
@@ -29,12 +28,17 @@ public class OrderDetailImpl implements OrderDetailDao {
     }
 
     @Override
-    public List<OrderDetail> querysAll(int orderID) {
-        String sql = "select * from OrderDetail where orderID = ?";
+    public List<OrderDetail> querysAll(String orderId) {
+        System.out.println(orderId);
+        String sql = "select detailID, orderID, orderdetail.bookID,number, price, bookName " +
+                "from OrderDetail,book " +
+                "where book.bookID=orderdetail.bookID AND orderdetail.orderID = " + orderId;
         try {
-            return queryRunner.query(sql, new BeanListHandler<OrderDetail>(OrderDetail.class), orderID);
+            return queryRunner.query(sql, new BeanListHandler<OrderDetail>(OrderDetail.class));
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException();
         }
     }
+
 }

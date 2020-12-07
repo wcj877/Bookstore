@@ -1,8 +1,6 @@
 package com.wsgs.bookstore.dao;
 
-import com.wsgs.bookstore.data.Book;
-import com.wsgs.bookstore.data.Classification;
-import com.wsgs.bookstore.utils.PageBean;
+import com.wsgs.bookstore.entity.Classification;
 
 import java.util.List;
 
@@ -26,11 +24,18 @@ public interface ClassificationDao {
      * @param classificationID
      * @return
      */
-    void delete(int classificationID);
+    void delete(String classificationID);
 
     /**
      * 获取图书类别
      * @param
      */
     List<Classification> getAll();
+
+    /**
+     * 返回图书类别
+     * @param classificationId
+     * @return
+     */
+    Classification getClassification(String classificationId);
 }

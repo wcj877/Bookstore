@@ -4,8 +4,8 @@ import com.wsgs.bookstore.dao.BookDao;
 import com.wsgs.bookstore.dao.ClassificationDao;
 import com.wsgs.bookstore.dao.impl.BookImpl;
 import com.wsgs.bookstore.dao.impl.ClassificationImpl;
-import com.wsgs.bookstore.data.Book;
-import com.wsgs.bookstore.data.Classification;
+import com.wsgs.bookstore.entity.Book;
+import com.wsgs.bookstore.entity.Classification;
 import com.wsgs.bookstore.utils.PageBean;
 
 import javax.servlet.ServletConfig;
@@ -45,7 +45,7 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
-        req.getRequestDispatcher("/admin/index.jsp").forward(req, resp);
+        resp.sendRedirect("/admin/index.jsp");
     }
 
     @Override

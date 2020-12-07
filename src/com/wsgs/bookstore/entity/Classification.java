@@ -1,8 +1,8 @@
-package com.wsgs.bookstore.data;
+package com.wsgs.bookstore.entity;
 
 public class Classification {
     private int classificationID;
-    String classificationName;
+    private String classificationName;
 
     public Classification() {
     }

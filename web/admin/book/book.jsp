@@ -43,6 +43,7 @@
             <td>图书分类名</td>
             <td>图书名</td>
             <td>图书作者</td>
+            <td>价格</td>
             <td>销售量</td>
             <td>操作</td>
         </tr>
@@ -61,6 +62,7 @@
                 <td align="center">${classificationId} &nbsp;</td>
                 <td align="center">${book.bookName}</td>
                 <td align="center">${book.writer} &nbsp;</td>
+                <td align="center">${book.price} &nbsp;</td>
                 <td align="center">${book.sellNumber} &nbsp;</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/BookServlet?method=getBook&amp;bookId=${book.bookId}"
@@ -77,11 +79,11 @@
     <div id="TableTail" align="center">
         <div class="FunctionButton"><a href="${pageContext.request.contextPath}/admin/book/addbook.jsp">添加</a>
         </div>
-        当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
-        <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=1">首页</a>
-        <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
-        <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
-        <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.totalPage}">末页</a>
+            当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
+            <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=1">首页</a>
+            <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
+            <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
+            <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;currentPage=${requestScope.pageBean.totalPage}">末页</a>
     </div>
 </div>
 

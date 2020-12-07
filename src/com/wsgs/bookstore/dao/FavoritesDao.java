@@ -1,7 +1,6 @@
 package com.wsgs.bookstore.dao;
 
-import com.wsgs.bookstore.data.Book;
-import com.wsgs.bookstore.data.Favorites;
+import com.wsgs.bookstore.entity.Favorites;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
 package com.wsgs.bookstore.utils;
 
-import com.wsgs.bookstore.data.Classification;
+import com.wsgs.bookstore.entity.Classification;
 
-import javax.lang.model.element.NestingKind;
 import java.util.List;
 
 public class PageBean<T> {

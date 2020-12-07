@@ -1,4 +1,4 @@
-package com.wsgs.bookstore.data;
+package com.wsgs.bookstore.entity;
 
 public class Favorites {
     int favoritesID;

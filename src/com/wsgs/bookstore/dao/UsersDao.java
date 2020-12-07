@@ -1,8 +1,6 @@
 package com.wsgs.bookstore.dao;
 
-import com.wsgs.bookstore.data.Users;
-
-import java.util.List;
+import com.wsgs.bookstore.entity.Users;
 
 public interface UsersDao {
 

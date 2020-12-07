@@ -1,7 +1,7 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.BookDao;
-import com.wsgs.bookstore.data.Book;
+import com.wsgs.bookstore.entity.Book;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import com.wsgs.bookstore.utils.PageBean;
 import org.apache.commons.dbutils.QueryRunner;

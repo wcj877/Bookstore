@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div.container{
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#back-to-top a {
+    color: black;
+    margin-left: 730px;
+    text-decoration-line: none;
+}

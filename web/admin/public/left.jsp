@@ -94,10 +94,10 @@ body {
                     <a target="right" href="${pageContext.request.contextPath}/BookServlet?method=querysAll">图书管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" >图书分类管理</a>
+                	<a target="right" href="${pageContext.request.contextPath}/ClassificationServlet?method=showAll">图书分类管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" >订单管理</a>
+                	<a target="right" href="${pageContext.request.contextPath}/OrderServlet?method=showAll">订单管理</a>
 				</li>
                 <li class="level2 level2Style">
                 	<a target="right" >推荐图书管理</a>

@@ -19,14 +19,14 @@
             <a href="" class="dropbtn"> 个人中心</a>
             <ul class="dropdown-content">
                 <li><a href="#">我的账号</a></li>
-                <li><a href="#">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
                 <li><a href="#">账号余额</a></li>
                 <li><a href="#">帮助</a></li>
                 <li><a href="#">关于</a></li>
                 <li><a href="#">退出</a></li>
             </ul>
         </li>
-        <li><a href=""> 购物车</a></li>
+        <li><a href="${pageContext.request.contextPath}/commons/cart.jsp"> 购物车</a></li>
         <li><a href=""> 退出</a></li>
     </ul>
 </div>
@@ -44,7 +44,7 @@
     <ul>
         <li class="title1"><a href="${pageContext.request.contextPath}/commons/index.jsp" >首页</a></li>
         <li class="title2"><a href="${pageContext.request.contextPath}/RankingServlet">销售榜</a></li>
-        <li class="title3"><a href="">分类</a></li>
+        <li class="title3"><a href="${pageContext.request.contextPath}/commons/classification.jsp">分类</a></li>
     </ul>
 </div>
 
@@ -79,7 +79,7 @@
     <c:forEach items="${applicationScope.recommendList}" var="recommend">
     <div class="tuijian">
         <ul>
-            <li><a href=""><img src="${pageContext.request.contextPath}/${recommend.url}"> </a></li>
+            <li><a href=""><img src="${pageContext.request.contextPath}/${recommend.url}" style="width:196px" height="196px"> </a></li>
             <li class="name1"><a href="#">${recommend.bookName}</a> </li>
             <li class="name2"><a href="#" title="小泉八云">${recommend.writer}</a> </li>
             <li class="name3">￥${recommend.price} </li>
@@ -95,7 +95,7 @@
     <c:forEach items="${applicationScope.putTimeList}" var="putTime">
         <div class="tuijian">
             <ul>
-                <li><a href=""><img src="${pageContext.request.contextPath}/${putTime.url}"> </a></li>
+                <li><a href=""><img src="${pageContext.request.contextPath}/${putTime.url}" style="width:196px" height="196px"> </a></li>
                 <li class="name1"><a href="#">${putTime.bookName}</a> </li>
                 <li class="name2"><a href="#" title="小泉八云">${putTime.writer}</a> </li>
                 <li class="name3">￥${putTime.price} </li>

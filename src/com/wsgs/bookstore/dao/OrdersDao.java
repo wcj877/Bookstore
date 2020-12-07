@@ -1,9 +1,7 @@
 package com.wsgs.bookstore.dao;
 
-import com.wsgs.bookstore.data.Orders;
+import com.wsgs.bookstore.entity.Orders;
 import com.wsgs.bookstore.utils.PageBean;
-
-import java.util.List;
 
 public interface OrdersDao {
     /**

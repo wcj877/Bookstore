@@ -1,7 +1,7 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.FavoritesDao;
-import com.wsgs.bookstore.data.Favorites;
+import com.wsgs.bookstore.entity.Favorites;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;

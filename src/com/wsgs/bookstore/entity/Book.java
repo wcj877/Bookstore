@@ -1,4 +1,4 @@
-package com.wsgs.bookstore.data;
+package com.wsgs.bookstore.entity;
 
 import java.sql.Date;
 

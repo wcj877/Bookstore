@@ -2,7 +2,7 @@ package com.wsgs.bookstore.servlet;
 
 import com.wsgs.bookstore.dao.BookDao;
 import com.wsgs.bookstore.dao.impl.BookImpl;
-import com.wsgs.bookstore.data.Book;
+import com.wsgs.bookstore.entity.Book;
 import com.wsgs.bookstore.utils.PageBean;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.fileupload.FileItem;
@@ -81,6 +81,17 @@ public class BookServlet extends HttpServlet {
             // 创建PageBean对象，设置当前页参数； 传入service方法参数
             PageBean<Book> pageBean = new PageBean<Book>();
             pageBean.setCurrentPage(currentPage);
+
+            String condition = request.getParameter("condition");
+            if("".equals(condition) || condition == null){
+
+            } else {
+                condition = " where " + condition;
+                pageBean.setCondition(condition);
+                dao.querysAll(pageBean);
+                request.setAttribute("pageBean", pageBean);
+                request.getRequestDispatcher("/commons/classification.jsp").forward(request, response);
+            }
 
             dao.querysAll(pageBean); // 【pageBean已经被dao填充了数据】
             // 保存pageBean对象，到request域中

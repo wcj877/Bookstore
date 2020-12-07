@@ -1,0 +1,63 @@
+#nav ul li.title3 a {
+    background-color: #22B14C;
+    color: white;
+}
+
+div.type {
+    width: 200px;
+    height: 1200px;
+    margin-left: 130px;
+    float: left;
+    border-right: gray 1px solid;
+}
+
+div.type ul li {
+    text-align: center;
+    display: block;
+    width: 100px;
+    margin-top: 20px;
+}
+
+div.type ul li a:hover {
+    background-color: #22B14C;
+    color: white;
+}
+
+#content {
+    width: 1500px;
+    height: 800px;
+}
+
+#content li.name1 {
+    font-size: 17px;
+    text-align: center;
+}
+
+#content li.name2 {
+    font-size: 13px;
+    text-align: center;
+}
+
+#content li.name3 {
+    font-size: 13px;
+    text-align: center;
+    color: brown;
+}
+
+#content li.name2 a:link {
+    color: grey;
+    text-decoration: none;
+}
+
+div.shu {
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: 250px;
+    height: 250px;
+    float: left;
+}
+
+#footer {
+    float: left;
+}
