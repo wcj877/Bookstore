@@ -14,7 +14,7 @@ public class FavoritesImpl implements FavoritesDao {
     QueryRunner queryRunner = JDBCUtils.getQueryRunner();
 
     @Override
-    public void add(int bookID, String userID) {
+    public void add(String bookID, String userID) {
         String sql =" INSERT favorites(bookID, userID) VALUES(?,?)";
         try {
             queryRunner.update(sql, bookID, userID);

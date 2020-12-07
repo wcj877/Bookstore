@@ -3,7 +3,9 @@ package com.wsgs.bookstore.servlet;
 import com.wsgs.bookstore.dao.BookDao;
 import com.wsgs.bookstore.dao.impl.BookImpl;
 import com.wsgs.bookstore.entity.Book;
+import com.wsgs.bookstore.entity.ShoppingCart;
 import com.wsgs.bookstore.utils.PageBean;
+import com.wsgs.bookstore.utils.SaveShoppingCartUtils;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -45,14 +47,28 @@ public class BookServlet extends HttpServlet {
             this.delete(request, response);
         } else if ("show".equals(method)){
             this.show(request, response);
+        } else if ("addToCart".equals(method)){
+            this.addToCart(request, response);
         }
 
 
     }
 
+
+    //添加图书至购物车
+    private void addToCart(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("bookId");
+        if (id != null){
+            ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+            shoppingCart.addBook(dao.getBook(id));
+            request.getSession().setAttribute("shoppingCart", shoppingCart);
+        }
+    }
+
+
+
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Book book = dao.getBook(request.getParameter("bookId"));
-        String id = request.getParameter("bookId");
 
         request.setAttribute("book", book);
         request.getRequestDispatcher("/commons/details.jsp").forward(request, response);

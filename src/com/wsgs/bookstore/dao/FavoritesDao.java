@@ -11,7 +11,7 @@ public interface FavoritesDao {
      * @param userID
      * @return
      */
-    void add(int bookID, String userID);
+    void add(String bookID, String userID);
 
     /**
      * 删除收藏的图书

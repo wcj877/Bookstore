@@ -7,22 +7,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f316b879-0b4f-4425-a619-02051288c13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/commons/details.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/style/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/style/js/page_common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/booksaaaaa_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/booksaaaaa_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/ShoppingCartList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/utils/SaveShoppingCartUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/css/carts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/FavoritesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/FavoritesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commons/classification.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/classification.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commons/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commons/ranking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/ranking.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/public/banner.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/public/banner.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/style/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/style/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/style/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/style/css/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/style" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/style/css" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.1541502" />
     <property name="project.structure.side.proportion" value="0.19248292" />
@@ -157,6 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607313878768</updated>
       <workItem from="1607320853262" duration="3595000" />
+      <workItem from="1607339547017" duration="5987000" />
     </task>
     <task id="LOCAL-00001" summary="增加头尾">
       <created>1607337553172</created>
@@ -165,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607337553172</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加图书详情页">
+      <created>1607339578834</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607339578834</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +196,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -184,17 +206,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加头尾" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加头尾" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="增加图书详情页" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加图书详情页" />
   </component>
 </project>

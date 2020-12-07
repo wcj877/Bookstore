@@ -147,8 +147,8 @@
 </div>
 
 <div id="find">
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo2.png"></a>
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo1.png"></a>
+    <a href="${pageContext.request.contextPath}/commons/index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo2.png"></a>
+    <a href="${pageContext.request.contextPath}/commons/index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo1.png"></a>
     <form>
         <input type="text" name="serch_text" size="30" maxlength="20" class="serch_text">
         <input type="button" value="搜索" name="serch" class="serch">

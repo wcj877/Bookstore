@@ -37,9 +37,15 @@
             <br><br>
 
         <a href="javascript: window.history.back()" class="btn btn-default">继续购物</a>
-        <a href="computerServlet?method=addToCartInside&pageNo=${computerpage.pageNo }&id=${computer.id}&model=${computer.model}&brand=${computer.brand}"
-           class="btn btn-primary addToCart" role="button">
+<%--        href="computerServlet?method=addToCartInside&pageNo=${computerpage.pageNo }&id=${computer.id}&model=${computer.model}&brand=${computer.brand}"--%>
+        <a
+           class="btn btn-primary addToCart" role="button"
+            onclick="showAlter('加入购物车')">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 加入购物车</a>
+        <a
+                class="btn btn-primary addToCart" role="button"
+                onclick="showAlter('收藏')">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 收藏 </a>
     </div>
 
 </center>

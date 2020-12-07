@@ -115,3 +115,7 @@ function showImage( url, width, height ){
 	window.showModalDialog(url, null, sFeatures);
 }
 
+
+function showAlter(prompt) {
+	alert(prompt + "成功")
+}
