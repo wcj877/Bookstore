@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<%@ include file="/commons/public/banner.jsp"%>
 <div class="container">
     <div class="jumbotron" style="margin-top:30px;">
         <p>购物车空空如也~</p>
@@ -32,5 +33,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &copy;2018 EStore Company, Inc.</p>
 </footer>
+
+<%@ include file="/commons/public/footer.jsp"%>
 </body>
 </html>

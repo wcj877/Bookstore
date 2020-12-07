@@ -154,14 +154,5 @@
         <input type="button" value="搜索" name="serch" class="serch">
     </form>
 </div>
-
-<div id="nav">
-    <ul>
-        <li class="title1"><a href="${pageContext.request.contextPath}/commons/index.jsp" >首页</a></li>
-        <li class="title2"><a href="${pageContext.request.contextPath}/RankingServlet">销售榜</a></li>
-        <li class="title3"><a href="${pageContext.request.contextPath}/commons/classification.jsp">分类</a></li>
-    </ul>
-</div>
-
 </body>
 </html>
