@@ -7,14 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f316b879-0b4f-4425-a619-02051288c13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/booksaaaaa_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/commons/details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/js/page_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/booksaaaaa_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/booksaaaaa_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booksaaaaa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/booksaaaaa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commons/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/classification.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/classification.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commons/public/banner.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/public/banner.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/ranking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/ranking.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,14 +45,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/bli/standard.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/style" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.1541502" />
     <property name="project.structure.side.proportion" value="0.19248292" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wsgs.bookstore.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\webJSP\student\bookstore\web\style" />
+      <recent name="D:\webJSP\student\bookstore\web\commons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -151,8 +156,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607313878768</updated>
-      <workItem from="1607320853262" duration="1556000" />
+      <workItem from="1607320853262" duration="3595000" />
     </task>
+    <task id="LOCAL-00001" summary="增加头尾">
+      <created>1607337553172</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607337553172</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,13 +182,17 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加头尾" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加头尾" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="1" />
+          <line>94</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

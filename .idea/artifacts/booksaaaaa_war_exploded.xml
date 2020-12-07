@@ -8,6 +8,17 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="bli" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/c3p0-0.9.1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-beanutils-1.8.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-dbutils-1.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-fileupload-1.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-fileupload-1.2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-io-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/jstl.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/mchange-commons-0.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/mysql-connector-java-8.0.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/standard.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="booksaaaaa/web/Web" />

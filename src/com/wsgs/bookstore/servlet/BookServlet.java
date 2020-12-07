@@ -51,9 +51,11 @@ public class BookServlet extends HttpServlet {
     }
 
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        Book book = dao.getBook(request.getParameter("bookId"));
-//        request.setAttribute("book", book);
-//        request.getRequestDispatcher("/admin/book/update.jsp").forward(request, response);
+        Book book = dao.getBook(request.getParameter("bookId"));
+        String id = request.getParameter("bookId");
+
+        request.setAttribute("book", book);
+        request.getRequestDispatcher("/commons/details.jsp").forward(request, response);
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,38 +71,38 @@ public class BookServlet extends HttpServlet {
     }
 
     private void querysAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // 获取“当前页”参数； (第一次访问当前页为null)
-            String currPage = request.getParameter("currentPage");
-            // 判断
-            if (currPage == null || "".equals(currPage.trim())) {
-                currPage = "1"; // 第一次访问，设置当前页为1;
-            }
-            // 转换
-            int currentPage = Integer.parseInt(currPage);
+        // 获取“当前页”参数； (第一次访问当前页为null)
+        String currPage = request.getParameter("currentPage");
+        // 判断
+        if (currPage == null || "".equals(currPage.trim())) {
+            currPage = "1"; // 第一次访问，设置当前页为1;
+        }
+        // 转换
+        int currentPage = Integer.parseInt(currPage);
 
-            // 创建PageBean对象，设置当前页参数； 传入service方法参数
-            PageBean<Book> pageBean = new PageBean<Book>();
-            pageBean.setCurrentPage(currentPage);
+        // 创建PageBean对象，设置当前页参数； 传入service方法参数
+        PageBean<Book> pageBean = new PageBean<Book>();
+        pageBean.setCurrentPage(currentPage);
 
-            String condition = request.getParameter("condition");
-            if("".equals(condition) || condition == null){
+        String condition = request.getParameter("condition");
+        if("".equals(condition) || condition == null){
 
-            } else {
-                condition = " where " + condition;
-                pageBean.setCondition(condition);
-                dao.querysAll(pageBean);
-                request.setAttribute("pageBean", pageBean);
-                request.getRequestDispatcher("/commons/classification.jsp").forward(request, response);
-            }
-
-            dao.querysAll(pageBean); // 【pageBean已经被dao填充了数据】
-            // 保存pageBean对象，到request域中
-
-            List<Book> bookList = pageBean.getPageData();
-
+        } else {
+            condition = " where " + condition;
+            pageBean.setCondition(condition);
+            dao.querysAll(pageBean);
             request.setAttribute("pageBean", pageBean);
-            request.setAttribute("bookList", bookList);
-            request.getRequestDispatcher("/admin/book/book.jsp").forward(request, response);
+            request.getRequestDispatcher("/commons/classification.jsp").forward(request, response);
+        }
+
+        dao.querysAll(pageBean); // 【pageBean已经被dao填充了数据】
+        // 保存pageBean对象，到request域中
+
+        List<Book> bookList = pageBean.getPageData();
+
+        request.setAttribute("pageBean", pageBean);
+        request.setAttribute("bookList", bookList);
+        request.getRequestDispatcher("/admin/book/book.jsp").forward(request, response);
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

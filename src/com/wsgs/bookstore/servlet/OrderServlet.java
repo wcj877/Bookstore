@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "OrderServlet", urlPatterns = "/OrderServlet")
@@ -58,6 +60,20 @@ public class OrderServlet extends HttpServlet {
     }
 
     private void add(HttpServletRequest request, HttpServletResponse response) {
+        String userId = "u_1111";
+
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+
+        String orderTime = formatter.format(date);
+        String orderStatus = "未发货";
+
+        Orders orders = new Orders();
+        orders.setOrderStatus(orderStatus);
+        orders.setOrderTime(orderTime);
+        orders.setUserId(userId);
+
+        dao.add(orders);
 
     }
 }

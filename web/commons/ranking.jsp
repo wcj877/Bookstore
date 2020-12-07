@@ -36,7 +36,8 @@
     <c:forEach items="${requestScope.list}" var="list">
         <tr>
             <th witdh="10%"> ${number=number+1} </th>
-            <th witdh="10%"><a href=""><img src="${list.url}" style="width:196px" height="196px"></a> </th>
+            <th witdh="10%"><a href="${pageContext.request.contextPath}/BookServlet?method=show&amp;bookId=${putTime.bookId}">
+                <img src="${list.url}" style="width:196px" height="196px"></a> </th>
             <th witdh="15%"><a href=""> ${list.bookName} </a></th>
             <th witdh="10%"><a href=""> ${list.writer} </a></th>
             <th witdh="15%">${list.price} </th>
