@@ -28,9 +28,7 @@ public class OrderDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String method = request.getParameter("method");
 
-        if ("add".equals(method)){
-            this.add(request,response);
-        } else if ("queryAll".equals(method)){
+        if ("queryAll".equals(method)){
             this.queryAll(request, response);
         }
     }
@@ -43,12 +41,4 @@ public class OrderDetailServlet extends HttpServlet {
         request.getRequestDispatcher("/admin/order/orderDetail.jsp").forward(request, response);
     }
 
-    /**
-     * 增加订单详情
-     * @param request
-     * @param response
-     */
-    private void add(HttpServletRequest request, HttpServletResponse response) {
-
-    }
 }

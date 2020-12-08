@@ -18,7 +18,7 @@
     <ul>
         <li class="title1"><a href="${pageContext.request.contextPath}/commons/index.jsp" >首页</a></li>
         <li class="title2"><a href="${pageContext.request.contextPath}/RankingServlet">销售榜</a></li>
-        <li class="title3"><a href="${pageContext.request.contextPath}/commons/classification.jsp">分类</a></li>
+        <li class="title3"><a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}">分类</a></li>
     </ul>
 </div>
 
@@ -32,11 +32,10 @@
         <th witdh="15%">销量 </th>
     </tr>
 
-    <c:set scope="page" value="0" var="number"/>
     <c:forEach items="${requestScope.list}" var="list">
         <tr>
-            <th witdh="10%"> ${number=number+1} </th>
-            <th witdh="10%"><a href="${pageContext.request.contextPath}/BookServlet?method=show&amp;bookId=${putTime.bookId}">
+            <th witdh="10%"> ${requestScope.number=requestScope.number+1} </th>
+            <th witdh="10%"><a href="${pageContext.request.contextPath}/BookServlet?method=show&amp;bookId=${list.bookId}">
                 <img src="${list.url}" style="width:196px" height="196px"></a> </th>
             <th witdh="15%"><a href=""> ${list.bookName} </a></th>
             <th witdh="10%"><a href=""> ${list.writer} </a></th>
@@ -47,7 +46,14 @@
 </table>
 
 <div id="page">
-
+    <div id="TableTail" align="center">
+        当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
+        <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=1">首页</a>
+        <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
+        <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
+        <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.totalPage}">末页</a>
+    </div>
+</div>
 </div>
 
 <%@ include file="/commons/public/footer.jsp"%>

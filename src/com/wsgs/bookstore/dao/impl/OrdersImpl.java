@@ -18,9 +18,9 @@ public class OrdersImpl implements OrdersDao {
 
     @Override
     public void add(Orders order) {
-        String sql =" INSERT orders(userID, orderTime, orderStatus) VALUES(?,?,?)";
+        String sql =" INSERT orders(orderId, userID, orderTime, orderStatus) VALUES(?,?,?,?)";
         try {
-            queryRunner.update(sql, order.getUserId(), order.getOrderTime(), order.getOrderStatus());
+            queryRunner.update(sql, order.getOrderId(), order.getUserId(), order.getOrderTime(), order.getOrderStatus());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

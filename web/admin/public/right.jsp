@@ -7,7 +7,7 @@
 </head>
 	<body>
 		<center>
-			<h1>欢迎使用无线点餐平台后台管理</h1>
+			<h1>欢迎使用虫二书屋后台管理</h1>
 <%--			<c:if test="${not empty applicationScope.tn}">--%>
 <%--				<c:forEach items="${applicationScope.tn}" var="tableName">--%>
 <%--					<td> ${tableName }桌呼叫结账</td>--%>

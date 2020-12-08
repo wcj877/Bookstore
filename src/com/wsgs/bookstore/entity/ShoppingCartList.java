@@ -1,4 +1,4 @@
-package com.wsgs.bookstore.servlet;
+package com.wsgs.bookstore.entity;
 
 import com.wsgs.bookstore.entity.Book;
 
@@ -12,6 +12,12 @@ public class ShoppingCartList {
     public ShoppingCartList(Book book) {
         this.book = book;
         this.num = 1;
+    }
+
+    public double getMoneyTotal(){
+        int  money = (int) (getMoney()*100);
+        double total = money*num;
+        return total/100;
     }
 
     public Book getBook() {

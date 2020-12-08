@@ -39,6 +39,8 @@ public class IndexServlet extends HttpServlet {
 
         ClassificationDao dao = new ClassificationImpl();
         List<Classification>  classificationList = dao.getAll();
+        int classification = classificationList.get(1).getClassificationID();
+        config.getServletContext().setAttribute("classification", classification);
         config.getServletContext().setAttribute("classificationList", classificationList);
     }
 

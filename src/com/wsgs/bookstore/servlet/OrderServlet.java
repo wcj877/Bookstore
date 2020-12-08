@@ -1,10 +1,13 @@
 package com.wsgs.bookstore.servlet;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+import com.wsgs.bookstore.dao.OrderDetailDao;
 import com.wsgs.bookstore.dao.OrdersDao;
+import com.wsgs.bookstore.dao.impl.OrderDetailImpl;
 import com.wsgs.bookstore.dao.impl.OrdersImpl;
-import com.wsgs.bookstore.entity.Book;
-import com.wsgs.bookstore.entity.Orders;
+import com.wsgs.bookstore.entity.*;
 import com.wsgs.bookstore.utils.PageBean;
+import com.wsgs.bookstore.utils.SaveShoppingCartUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -59,8 +63,12 @@ public class OrderServlet extends HttpServlet {
 
     }
 
-    private void add(HttpServletRequest request, HttpServletResponse response) {
+    private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = "u_1111";
+
+        SimpleDateFormat formatterId= new SimpleDateFormat("yyyyMMdHHmmss");
+        Date dateId = new Date(System.currentTimeMillis());
+        String orderId = formatterId.format(dateId);
 
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
@@ -72,8 +80,18 @@ public class OrderServlet extends HttpServlet {
         orders.setOrderStatus(orderStatus);
         orders.setOrderTime(orderTime);
         orders.setUserId(userId);
+        orders.setOrderId(orderId);
 
         dao.add(orders);
 
+        ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+        Collection<ShoppingCartList> items = shoppingCart.getItems();
+
+        OrderDetailDao orderDetailDao = new OrderDetailImpl();
+        orderDetailDao.add(items, orderId);
+
+        shoppingCart.clear();
+        request.getSession().setAttribute("shoppingCart", shoppingCart);
+        request.getRequestDispatcher("/commons/cartAir.jsp").forward(request, response);
     }
 }

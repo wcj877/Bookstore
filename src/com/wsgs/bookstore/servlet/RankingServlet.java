@@ -36,6 +36,7 @@ public class RankingServlet extends HttpServlet {
 
         List<Book> list = pageBean.getPageData();
 
+        request.setAttribute("number", (currentPage-1)*pageBean.getPageCount());
         request.setAttribute("list", list);
         request.setAttribute("pageBean", pageBean);
 

@@ -1,7 +1,5 @@
 package com.wsgs.bookstore.entity;
 
-import com.wsgs.bookstore.servlet.ShoppingCartList;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,9 +59,10 @@ public class ShoppingCart {
     public double getBookSum(){
         double sum= 0;
         for (ShoppingCartList shoppingCartList: cartListMap.values()){
-            sum += shoppingCartList.getMoney();
+            int money = (int) (shoppingCartList.getMoney()*100);
+            sum += money*shoppingCartList.getNum();
         }
-        return sum;
+        return sum/100;
     }
 
     /**
@@ -81,8 +80,9 @@ public class ShoppingCart {
      * 移出一种商品
      * @param id
      */
-    public void removeBook(int id){
-        cartListMap.remove(id);
+    public void removeBook(String id){
+        Integer key = new Integer(id);
+        cartListMap.remove(key);
     }
 
     /**
@@ -91,6 +91,13 @@ public class ShoppingCart {
      */
     public Collection<ShoppingCartList> getItems(){
         return cartListMap.values();
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "cartListMap=" + cartListMap +
+                '}';
     }
 
     public Map<Integer, ShoppingCartList> getCartListMap() {

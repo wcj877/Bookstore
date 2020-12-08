@@ -6,20 +6,38 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f316b879-0b4f-4425-a619-02051288c13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/ShoppingCartList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/utils/SaveShoppingCartUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/style/css/carts.css" afterDir="false" />
+    <list default="true" id="f316b879-0b4f-4425-a619-02051288c13d" name="Default Changelist" comment="增加添加至购物车功能">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/bli/gson-2.2.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/commons/cartAir.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/css/cartn.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/js/cartValidate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/style/js/jquery-3.2.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/FavoritesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/FavoritesDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booksaaaaa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/booksaaaaa.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/OrderDetailDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/OrderDetailDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrderDetailImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrderDetailImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrdersImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrdersImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/IndexServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/IndexServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderDetailServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderDetailServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/RankingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/RankingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/ShoppingCartList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCartList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/public/right.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/public/right.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/public/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/public/top.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/classification.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/classification.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/commons/public/banner.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/public/banner.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/ranking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/ranking.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/style/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/style/css/cart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/style/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/style/css/index.css" afterDir="false" />
     </list>
@@ -33,6 +51,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -57,8 +76,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/style/css" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/bli/gson-2.2.4.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.1541502" />
     <property name="project.structure.side.proportion" value="0.19248292" />
   </component>
@@ -67,6 +86,9 @@
       <recent name="com.wsgs.bookstore.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\webJSP\student\bookstore\web\WEB-INF\bli" />
+      <recent name="D:\webJSP\student\bookstore\web\style\js" />
+      <recent name="D:\webJSP\student\bookstore\web\style\css" />
       <recent name="D:\webJSP\student\bookstore\web\style" />
       <recent name="D:\webJSP\student\bookstore\web\commons" />
     </key>
@@ -169,7 +191,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607313878768</updated>
       <workItem from="1607320853262" duration="3595000" />
-      <workItem from="1607339547017" duration="5987000" />
+      <workItem from="1607339547017" duration="10181000" />
+      <workItem from="1607349898273" duration="17359000" />
     </task>
     <task id="LOCAL-00001" summary="增加头尾">
       <created>1607337553172</created>
@@ -185,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607339578834</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="增加添加至购物车功能">
+      <created>1607345581512</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607345581512</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +237,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加头尾" />
     <MESSAGE value="增加图书详情页" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加图书详情页" />
+    <MESSAGE value="增加添加至购物车功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加添加至购物车功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

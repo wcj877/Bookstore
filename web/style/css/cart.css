@@ -16,14 +16,3 @@ div.container{
     text-decoration-line: none;
 }
 
-
-.table tbody tr td{
-    vertical-align: middle;
-}
-.cartItemNum {
-
-    text-align:center;
-}
-.totalMoney {
-    font-size:22px;
-}

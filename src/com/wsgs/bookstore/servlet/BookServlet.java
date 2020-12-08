@@ -1,7 +1,10 @@
 package com.wsgs.bookstore.servlet;
 
+import com.google.gson.Gson;
 import com.wsgs.bookstore.dao.BookDao;
+import com.wsgs.bookstore.dao.FavoritesDao;
 import com.wsgs.bookstore.dao.impl.BookImpl;
+import com.wsgs.bookstore.dao.impl.FavoritesImpl;
 import com.wsgs.bookstore.entity.Book;
 import com.wsgs.bookstore.entity.ShoppingCart;
 import com.wsgs.bookstore.utils.PageBean;
@@ -21,7 +24,9 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "BookServlet", urlPatterns = "/BookServlet")
 public class BookServlet extends HttpServlet {
@@ -49,23 +54,90 @@ public class BookServlet extends HttpServlet {
             this.show(request, response);
         } else if ("addToCart".equals(method)){
             this.addToCart(request, response);
+        } else if ("deleteShoppingCartBook".equals(method)){
+            this.deleteShoppingCartBook(request, response);
+        } else if ("clear".equals(method)){
+            this.clear(request, response);
+        } else if ("showCart".equals(method)){
+            this.showCart(request, response);
+        } else if ("updateCartBook".equals(method)){
+            this.updateCartBook(request, response);
+        } else if ("addFavorites".equals(method)){
+            this.addFavorites(request, response);
         }
 
 
+    }
+
+    private void addFavorites(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        FavoritesDao favoritesDao = new FavoritesImpl();
+        favoritesDao.add(request.getParameter("bookId"), "u_1111");
+        show(request, response);
+    }
+
+    private void updateCartBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+        if (!shoppingCart.isEmpty()){
+            shoppingCart.updateNum(Integer.parseInt(request.getParameter("quantity")), Integer.parseInt(request.getParameter("bookId")));
+            request.getSession().setAttribute("shoppingCart", shoppingCart);
+            //5. 传回 JSON 数据: computerNumber:xx, totalMoney
+            Map<String, Object> result = new HashMap<String, Object>();
+            result.put("computerNumber", shoppingCart.getBookTotal());
+            result.put("totalMoney", shoppingCart.getBookSum());
+
+            Gson gson = new Gson();
+            String jsonStr = gson.toJson(result);
+            response.setContentType("text/javascript");
+            response.getWriter().print(jsonStr);
+        }
+    }
+
+    private void showCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+        if (!shoppingCart.isEmpty()){
+            request.getRequestDispatcher("/commons/cart.jsp").forward(request, response);
+        } else{
+            request.getRequestDispatcher("/commons/cartAir.jsp").forward(request, response);
+        }
+    }
+
+    private void clear(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+        shoppingCart.clear();
+        request.getSession().setAttribute("shoppingCart", shoppingCart);
+        request.getRequestDispatcher("/commons/cartAir.jsp").forward(request, response);
+    }
+
+    /**
+     * 删除购物车中的图书
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    private void deleteShoppingCartBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("bookId");
+        if (id != null){
+            ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+            shoppingCart.removeBook(id);
+            request.getSession().setAttribute("shoppingCart", shoppingCart);
+        }
+        this.showCart(request, response);
     }
 
 
     //添加图书至购物车
-    private void addToCart(HttpServletRequest request, HttpServletResponse response) {
+    private void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("bookId");
         if (id != null){
             ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
+
             shoppingCart.addBook(dao.getBook(id));
             request.getSession().setAttribute("shoppingCart", shoppingCart);
         }
+        show(request, response);
     }
-
-
 
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Book book = dao.getBook(request.getParameter("bookId"));
@@ -104,16 +176,16 @@ public class BookServlet extends HttpServlet {
         if("".equals(condition) || condition == null){
 
         } else {
-            condition = " where " + condition;
+            request.getServletContext().setAttribute("classification",condition);
+
+            condition = " where classificationId = " + condition;
             pageBean.setCondition(condition);
             dao.querysAll(pageBean);
             request.setAttribute("pageBean", pageBean);
             request.getRequestDispatcher("/commons/classification.jsp").forward(request, response);
         }
 
-        dao.querysAll(pageBean); // 【pageBean已经被dao填充了数据】
-        // 保存pageBean对象，到request域中
-
+        dao.querysAll(pageBean);
         List<Book> bookList = pageBean.getPageData();
 
         request.setAttribute("pageBean", pageBean);

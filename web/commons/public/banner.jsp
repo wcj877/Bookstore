@@ -141,7 +141,7 @@
                 <li><a href="#">退出</a></li>
             </ul>
         </li>
-        <li><a href="${pageContext.request.contextPath}/commons/cart.jsp"> 购物车</a></li>
+        <li><a href="${pageContext.request.contextPath}/BookServlet?method=showCart"> 购物车</a></li>
         <li><a href=""> 退出</a></li>
     </ul>
 </div>

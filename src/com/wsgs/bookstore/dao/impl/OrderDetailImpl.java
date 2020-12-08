@@ -2,12 +2,14 @@ package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.OrderDetailDao;
 import com.wsgs.bookstore.entity.OrderDetail;
+import com.wsgs.bookstore.entity.ShoppingCartList;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.List;
 
 public class OrderDetailImpl implements OrderDetailDao {
@@ -15,11 +17,11 @@ public class OrderDetailImpl implements OrderDetailDao {
     QueryRunner queryRunner = JDBCUtils.getQueryRunner();
 
     @Override
-    public void add(List<OrderDetail> orderDetails) {
+    public void add(Collection<ShoppingCartList> shoppingCartLists, String orderId) {
         String sql =" INSERT orderDetail(orderID, bookID, number) VALUES(?,?,?)";
         try {
-            for (OrderDetail orderDetail: orderDetails){
-                queryRunner.update(sql, orderDetail.getOrderID(), orderDetail.getBookID(), orderDetail.getNumber());
+            for (ShoppingCartList shoppingCart: shoppingCartLists){
+                queryRunner.update(sql, orderId, shoppingCart.getBook().getBookId(), shoppingCart.getNum());
             }
 
         } catch (Exception e) {

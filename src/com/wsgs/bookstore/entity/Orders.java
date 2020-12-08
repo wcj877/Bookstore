@@ -1,7 +1,7 @@
 package com.wsgs.bookstore.entity;
 
 public class Orders {
-    private int orderId;
+    private String orderId;
     private String userId;
     private String orderTime;
     private String orderStatus;
@@ -10,11 +10,11 @@ public class Orders {
     public Orders() {
     }
 
-    public int getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 

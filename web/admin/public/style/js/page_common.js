@@ -117,5 +117,6 @@ function showImage( url, width, height ){
 
 
 function showAlter(prompt) {
-	alert(prompt + "成功")
+	alert(prompt + "成功");
+	window.history.back()
 }

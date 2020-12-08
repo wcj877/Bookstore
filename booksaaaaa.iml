@@ -124,5 +124,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.37" level="application_server_libraries" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/WEB-INF/bli/gson-2.2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
