@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/ranking.css" type="text/css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/footer.css" type="text/css" />
     <title>虫二书屋</title>
-
+    <style>
+        div#TableT a{
+            display: block;
+            width: 60px;
+            height: 20px;
+            float: left;
+            margin: 0 auto;
+            margin-left: 50px;
+            border: #22B14C 1px dashed;
+        }
+        div#TableT a:hover{
+            background: #22B14C;
+            color: white;
+        }
+        div#TableT a:nth-child(3){
+            margin-left: 550px;
+        }
+    </style>
 </head>
 <body>
 
@@ -46,14 +63,16 @@
 </table>
 
 <div id="page">
-    <div id="TableTail" align="center">
+    <div id="TableT" align="center">
         当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
+        <br>
+        <br>
         <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=1">首页</a>
         <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
         <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
         <a href="${pageContext.request.contextPath}/RankingServlet?currentPage=${requestScope.pageBean.totalPage}">末页</a>
+        <br>
     </div>
-</div>
 </div>
 
 <%@ include file="/commons/public/footer.jsp"%>

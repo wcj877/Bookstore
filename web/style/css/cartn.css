@@ -1,12 +1,36 @@
 @charset "UTF-8";
-.table tbody tr td{
-            vertical-align: middle;
+
+.table tbody tr td {
+	vertical-align: middle;
 }
+
+.table a:hover{
+	color: white;
+	background: #22B14C;
+}
+
+div.row a:nth-child(1){
+	margin-left: 500px;
+}
+
+div.row a{
+	margin-left: 50px;
+}
+
+div.row a{
+	float: left;
+}
+
+div.row a:hover{
+	color: white;
+	background: #22B14C;
+}
+
 .cartItemNum {
-	
-	text-align:center;
+	text-align: center;
 }
-.totalMoney {
-	font-size:22px;
+
+#totalMoney {
+	margin-left: 650px;
+	font-size: 22px;
 }
-   

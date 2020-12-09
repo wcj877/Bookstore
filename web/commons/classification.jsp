@@ -18,8 +18,9 @@
             <a href="" class="dropbtn"> 个人中心</a>
             <ul class="dropdown-content">
                 <li><a href="#">我的账号</a></li>
-                <li><a href="#">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
                 <li><a href="#">账号余额</a></li>
+                <li><a href="${pageContext.request.contextPath}/commons/collect.jsp">收藏</a></li>
                 <li><a href="#">帮助</a></li>
                 <li><a href="#">关于</a></li>
                 <li><a href="#">退出</a></li>
@@ -50,14 +51,12 @@
 <div class="type">
     <ul>
         <li>图书分类</li>
-
         <c:forEach items="${applicationScope.classificationList}" var="classification">
             <li>
                 <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;condition=${classification.classificationID}">
                         ${classification.classificationName}
                 </a>
             </li>
-
         </c:forEach>
     </ul>
 </div>
@@ -81,15 +80,16 @@
 
 <div id="TableTail" align="center">
     当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
+    <br>
+    <br>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=1">首页</a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.totalPage}">末页</a>
-</div>
+    <br>
 </div>
 
 <%@ include file="/commons/public/footer.jsp"%>
-
 
 </body>
 </html>
