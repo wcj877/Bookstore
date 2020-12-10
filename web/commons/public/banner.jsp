@@ -134,7 +134,7 @@
             <a href="" class="dropbtn"> 个人中心</a>
             <ul class="dropdown-content">
                 <li><a href="#">我的账号</a></li>
-                <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/OrderServlet?method=querysAll">我的订单</a></li>
                 <li><a href="${pageContext.request.contextPath}/FavoritesServlet?method=querysAll">账号余额</a></li>
                 <li><a href="${pageContext.request.contextPath}/FavoritesServlet?method=querysAll">收藏</a></li>
                 <li><a href="${pageContext.request.contextPath}/FavoritesServlet?method=querysAll">帮助</a></li>

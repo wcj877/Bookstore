@@ -60,7 +60,7 @@ public class OrdersImpl implements OrdersDao {
         int count = pb.getPageCount(); // 查询返回的行数
 
         StringBuilder sb = new StringBuilder();
-        sb.append(" select orders.orderID, orders.userID, orders.orderTime, orderStatus ,SUM(price*number) as totalAmount  " +
+        sb.append(" select orders.orderID, orders.userID, orders.orderTime, orderStatus ,SUM(price*number) as totalAmount,SUM(number) as total  " +
                 "from OrderDetail,book,orders  " +
                 "where book.bookID=orderdetail.bookID AND orders.orderID=orderdetail.orderID  " +
                 "GROUP BY orders.orderID");
@@ -93,6 +93,22 @@ public class OrdersImpl implements OrdersDao {
             }
             Long count =  queryRunner.query(sql, new ScalarHandler<Long>());
             return count.intValue();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Orders> getUserOrders(String userId, String status) {
+        String sql = " select orders.orderID, orders.userID, orders.orderTime, orderStatus ,SUM(price*number) as totalAmount,SUM(number) as total  " +
+                "from OrderDetail,book,orders  " +
+                "where book.bookID=orderdetail.bookID AND orders.orderID=orderdetail.orderID and orders.userId =? ";
+        if (status != null){
+            sql+=" and orderStatus = '" + status + "'";
+        }
+        sql+="  GROUP BY orders.orderID;";
+        try {
+            return queryRunner.query(sql, new BeanListHandler<Orders>(Orders.class), userId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

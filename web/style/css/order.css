@@ -2,20 +2,20 @@
     background-color: #22B14C;
     color: white;
 }
-#ranking{
+.ranking{
     border-top: 2px solid #22B14C;;
     margin: 0 auto;
     margin-bottom: 100px;
 }
-#ranking th{
+.ranking th{
     border-bottom: 2px solid #22B14C;
     padding: 10px 80px 10px 80px;
     color: grey;
 }
-#ranking a{
+.ranking a{
     color: grey;
 }
-#ranking a:hover{
+.ranking a:hover{
     color: #22B14C;
 }
 

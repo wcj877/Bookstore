@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -26,11 +28,29 @@ public class OrderDetailServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String method = request.getParameter("method");
 
-        if ("queryAll".equals(method)){
-            this.queryAll(request, response);
+
+        String methodName = request.getParameter("method");
+
+        //运用反射获取方法运行
+        try {
+            //得到该运行时类的methodName方法并设置设置两个形参HttpServletRequest和HttpServletResponse
+            Method method1 = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+            method1.setAccessible(true);
+            method1.invoke(this, request, response);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
         }
+
+
+
+
+
+//        String method = request.getParameter("method");
+//
+//        if ("queryAll".equals(method)){
+//            this.queryAll(request, response);
+//        }
     }
 
     //查询所有订单id为orderId的订单详情

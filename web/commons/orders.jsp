@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 87608
@@ -5,127 +6,144 @@
   Time: 15:55
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/banner.css" type="text/css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/order.css" type="text/css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/footer.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/banner.css" type="text/css"/>
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/order.css" type="text/css"/>--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/css/footer.css" type="text/css"/>
+    <%--    <script type="text/javascript" src="${pageContext.request.contextPath}/style/js/orders.js"></script>--%>
     <title>虫二书屋-订单</title>
+<style>
+    #nav ul li.title2 a{
+        background-color: #22B14C;
+        color: white;
+    }
+    .ranking{
+        border-top: 2px solid #22B14C;;
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+    .ranking th{
+        border-bottom: 2px solid #22B14C;
+        padding: 10px 80px 10px 80px;
+        color: grey;
+    }
+    .ranking a{
+        color: grey;
+    }
+    .ranking a:hover{
+        color: #22B14C;
+    }
 
+    #page{
+        margin: 0 auto;
+    }
+</style>
 </head>
 <body>
 
-<div id="banner">
-    <ul>
-        <li><a href="regist.jsp"> 注册</a></li>
-        <li><a href="login.jsp"> 登陆</a></li>
-        <li class="dropdown">
-            <a href="" class="dropbtn"> 个人中心</a>
-            <ul class="dropdown-content">
-                <li><a href="#">我的账号</a></li>
-                <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
-                <li><a href="#">账号余额</a></li>
-                <li><a href="${pageContext.request.contextPath}/commons/collect.jsp">收藏</a></li>
-                <li><a href="#">帮助</a></li>
-                <li><a href="#">关于</a></li>
-                <li><a href="#">退出</a></li>
-            </ul>
-        </li>
-        <li><a href="${pageContext.request.contextPath}/commons/cart.jsp"> 购物车</a></li>
-        <li><a href=""> 退出</a></li>
-    </ul>
-</div>
-
-<div id="find">
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo2.png"></a>
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo1.png"></a>
-    <form>
-        <input type="text" name="serch_text" size="30" maxlength="20" class="serch_text">
-        <input type="button" value="搜索" name="serch" class="serch">
-    </form>
-</div>
+<%@ include file="/commons/public/banner.jsp" %>
 
 <div id="nav">
     <p style="font-size: 24px">&nbsp;&nbsp;&nbsp;我的订单</p>
     <ul>
-        <li class="title2"><a href="#">已发货</a></li>
-        <li class="title3"><a href="#">未发货</a></li>
-        <li class="title4"><a href="#">全部订单</a></li>
+        <li><a href="#" class="titleb" style="background-color: #22B14C;color: #FFFFFF">未发货</a></li>
+        <li><a href="#" class="titleb">已发货</a></li>
+        <li><a href="#" class="titleb">全部订单</a></li>
     </ul>
 </div>
 
-<table id="ranking">
-    <tr>
-        <th witdh="10%">订单编号 </th>
-        <th witdh="10%">书籍 </th>
-        <th witdh="10%">书名 </th>
-        <th witdh="10%">作者 </th>
-        <th witdh="15%">价格 </th>
-        <th witdh="15%">购买数量 </th>
-    </tr>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
+    <table class="ranking" style="display: block">
+        <tr>
+            <th witdh="10%">订单编号</th>
+            <th witdh="10%">下单时间</th>
+            <th witdh="10%">总价格</th>
+            <th witdh="15%">购买数量</th>
+            <th witdh="15%">物流状态</th>
+        </tr>
+        <c:forEach items="${requestScope.notShipped}" var="notShipped">
+            <tr>
+                <th witdh="10%">${notShipped.orderId}</th>
+                <th witdh="10%">${notShipped.orderTime}</th>
+                <th witdh="10%">${notShipped.totalAmount}</th>
+                <th witdh="15%">${notShipped.total}</th>
+                <th witdh="15%">${notShipped.orderStatus}</th>
+            </tr>
+        </c:forEach>
+    </table>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
+    <table class="ranking" style="display: none">
+        <tr>
+            <th witdh="10%">订单编号</th>
+            <th witdh="10%">下单时间</th>
+            <th witdh="10%">总价格</th>
+            <th witdh="15%">购买数量</th>
+            <th witdh="15%">物流状态</th>
+        </tr>
+        <c:forEach items="${requestScope.shipped}" var="shipped">
+            <tr>
+                <th witdh="10%">${shipped.orderId}</th>
+                <th witdh="10%">${shipped.orderTime}</th>
+                <th witdh="10%">${shipped.totalAmount}</th>
+                <th witdh="15%">${shipped.total}</th>
+                <th witdh="15%">${shipped.orderStatus}</th>
+            </tr>
+        </c:forEach>
+    </table>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
-</table>
+
+
+
+    <table class="ranking" style="display: none">
+        <tr>
+            <th witdh="10%">订单编号</th>
+            <th witdh="10%">下单时间</th>
+            <th witdh="10%">总价格</th>
+            <th witdh="15%">购买数量</th>
+            <th witdh="15%">物流状态</th>
+        </tr>
+        <c:forEach items="${requestScope.userOrders}" var="userOrders">
+            <tr>
+                <th witdh="10%">${userOrders.orderId}</th>
+                <th witdh="10%">${userOrders.orderTime}</th>
+                <th witdh="10%">${userOrders.totalAmount}</th>
+                <th witdh="15%">${userOrders.total}</th>
+                <th witdh="15%">${userOrders.orderStatus}</th>
+            </tr>
+        </c:forEach>
+    </table>
+
 
 <div id="page">
 
 </div>
 
-<div id="footer"></div>
+<%@ include file="/commons/public/footer.jsp" %>
+
+<script>
+    lis = document.querySelectorAll(".titleb");
+    ranking = document.querySelectorAll(".ranking");
+    console.log(ranking)
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].onclick = function () {
+            for (let j = 0; j < lis.length; j++) {
+                ranking[j].style.display = "none";
+                lis[j].style.backgroundColor = "#ffffff";
+                lis[j].style.color = "#22B14C"
+            }
+
+            lis[i].style.backgroundColor = "#22B14C";
+            lis[i].style.color = "#fff"
+            ranking[i].style.display = "block";
+        }
+    }
+</script>
 
 </body>
 </html>

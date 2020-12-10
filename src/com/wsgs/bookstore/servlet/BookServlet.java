@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -38,43 +40,34 @@ public class BookServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String method = request.getParameter("method");
+        String methodName = request.getParameter("method");
 
-        if ("add".equals(method)){
-            this.add(request,response);
-        } else if ("update".equals(method)){
-            this.update(request,response);
-        } else if ("querysAll".equals(method)){
-            this.querysAll(request, response);
-        } else if ("getBook".equals(method)){
-            this.getBook(request, response);
-        } else if ("delete".equals(method)){
-            this.delete(request, response);
-        } else if ("show".equals(method)){
-            this.show(request, response);
-        } else if ("addToCart".equals(method)){
-            this.addToCart(request, response);
-        } else if ("deleteShoppingCartBook".equals(method)){
-            this.deleteShoppingCartBook(request, response);
-        } else if ("clear".equals(method)){
-            this.clear(request, response);
-        } else if ("showCart".equals(method)){
-            this.showCart(request, response);
-        } else if ("updateCartBook".equals(method)){
-            this.updateCartBook(request, response);
-        } else if ("addFavorites".equals(method)){
-            this.addFavorites(request, response);
+        //运用反射获取方法运行
+        try {
+            //得到该运行时类的methodName方法并设置设置两个形参HttpServletRequest和HttpServletResponse
+            Method method1 = getClass().getDeclaredMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+            method1.setAccessible(true);
+            method1.invoke(this, request, response);
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            e.printStackTrace();
         }
-
 
     }
 
+    /**
+     * 增加收藏
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void addFavorites(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FavoritesDao favoritesDao = new FavoritesImpl();
         favoritesDao.add(request.getParameter("bookId"), "u_1111");
         show(request, response);
     }
 
+    //修改购物车中的图书
     private void updateCartBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
@@ -93,6 +86,7 @@ public class BookServlet extends HttpServlet {
         }
     }
 
+    //显示购物车
     private void showCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
         if (!shoppingCart.isEmpty()){
@@ -102,6 +96,7 @@ public class BookServlet extends HttpServlet {
         }
     }
 
+    //清除购物车
     private void clear(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ShoppingCart shoppingCart = SaveShoppingCartUtils.getShoppingCart(request);
         shoppingCart.clear();
@@ -219,7 +214,6 @@ public class BookServlet extends HttpServlet {
         List<Book> bookList = pageBean.getPageData();
 
         request.setAttribute("pageBean", pageBean);
-        request.setAttribute("bookList", bookList);
         request.getRequestDispatcher("/admin/book/book.jsp").forward(request, response);
     }
 

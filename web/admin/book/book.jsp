@@ -51,7 +51,7 @@
         <!--显示数据列表 -->
         <tbody id="TableData">
 
-        <c:forEach items="${requestScope.bookList}" var="book" >
+        <c:forEach items="${requestScope.pageBean.pageData}" var="book" >
             <tr class="TableDetail1">
                 <td align="center">${book.bookId}</td>
                 <c:forEach items="${applicationScope.classificationList}" var="classification">

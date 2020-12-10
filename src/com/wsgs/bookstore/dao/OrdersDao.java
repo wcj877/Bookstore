@@ -3,6 +3,8 @@ package com.wsgs.bookstore.dao;
 import com.wsgs.bookstore.entity.Orders;
 import com.wsgs.bookstore.utils.PageBean;
 
+import java.util.List;
+
 public interface OrdersDao {
     /**
      * 增加订单
@@ -31,4 +33,11 @@ public interface OrdersDao {
      * @return
      */
     int getCount(String condition);
+
+    /**
+     * 获取用户所有订单
+     * @param userId
+     * @return
+     */
+    List<Orders> getUserOrders(String userId, String status);
 }

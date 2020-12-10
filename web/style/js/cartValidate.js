@@ -4,6 +4,10 @@
 
 	
 	$(function(){
+		$(".btn-primary").click(function(){
+			alert("购买成功")
+		});
+
 		$(".delete").click(function(){
 			
 			var $tr = $(this).parent().parent();

@@ -6,8 +6,17 @@ public class Orders {
     private String orderTime;
     private String orderStatus;
     private double totalAmount;//订单总金额（没有在数据库中声明该）
+    private int total;
 
     public Orders() {
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public String getOrderId() {

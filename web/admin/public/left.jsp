@@ -99,9 +99,6 @@ body {
                 <li class="level2 level2Style">
                 	<a target="right" href="${pageContext.request.contextPath}/OrderServlet?method=showAll">订单管理</a>
 				</li>
-                <li class="level2 level2Style">
-                	<a target="right" >推荐图书管理</a>
-				</li>
             </ul>
         </li>
     </ul>
