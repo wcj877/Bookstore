@@ -30,15 +30,6 @@
     <div id="TitleArea_End"></div>
 </div>
 
-<!-- 过滤条件 -->
-<div id="QueryArea">
-    <form action="${pageContext.request.contextPath}/table" method="post">
-        <input type="hidden" name="method" value="search">
-        <input type="text" name="keyword" title="请输入订单编号">
-        <input type="submit" value="搜索">
-    </form>
-</div>
-
 <!-- 主内容区域（数据列表或表单显示） -->
 <div id="MainArea">
     <table class="MainArea_Content" cellspacing="0" cellpadding="0">
@@ -56,7 +47,7 @@
         <!--显示数据列表 -->
         <tbody id="TableData">
 
-        <c:forEach items="${requestScope.ordersList}" var="orders" >
+        <c:forEach items="${requestScope.pageBean.pageData}" var="orders" >
             <tr class="TableDetail1">
                 <td align="center">${orders.orderId}</td>
                 <td align="center">${orders.totalAmount}</td>
@@ -65,8 +56,8 @@
                 <td>
                     <a href="${pageContext.request.contextPath}/OrderDetailServlet?method=queryAll&amp;orderId=${orders.orderId}"
                        class="FunctionButton">详情</a>
-                    <a href="${pageContext.request.contextPath}/OrderDetailServlet?method=&amp;orderId=${orders.orderId}"
-                       onclick="return delConfirm();" class="FunctionButton">发货</a>
+                    <a href="${pageContext.request.contextPath}/OrderServlet?method=orderShipping&amp;orderId=${orders.orderId}"
+                       onclick="return isSihp();" class="FunctionButton">发货</a>
                 </td>
             </tr>
         </c:forEach>

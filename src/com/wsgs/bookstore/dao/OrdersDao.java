@@ -14,11 +14,11 @@ public interface OrdersDao {
     void add(Orders order);
 
     /**
-     * 修改订单
-     * @param order
-     * @return
+     * 修改订单物流状态
+     * @param orderId
+     * @param status
      */
-    void update(Orders order);
+    void update(String orderId, String status);
 
 
     /**

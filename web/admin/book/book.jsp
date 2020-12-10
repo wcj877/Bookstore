@@ -24,14 +24,7 @@
     <div id="TitleArea_End"></div>
 </div>
 
-<!-- 过滤条件 -->
-<div id="QueryArea">
-    <form action="${pageContext.request.contextPath}/table" method="post">
-        <input type="hidden" name="method" value="search">
-        <input type="text" name="keyword" title="请输入图书名">
-        <input type="submit" value="搜索">
-    </form>
-</div>
+
 
 <!-- 主内容区域（数据列表或表单显示） -->
 <div id="MainArea">

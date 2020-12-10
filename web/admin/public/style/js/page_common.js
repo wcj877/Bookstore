@@ -96,10 +96,15 @@ function gotoPage( pageNum ){
  * 删除前的确认提示
  */
 function delConfirm(){
-	return window.confirm("您确定要删除一条记录码？");	
+	return window.confirm("您确定要删除一条记录码？");
 }
 
-
+/**
+ * 发货前的确认提示
+ */
+function isSihp(){
+	return window.confirm("您确定发货吗？");
+}
 
 /**
  * （使用模式对活框）显示图片

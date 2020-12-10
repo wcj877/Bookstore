@@ -61,10 +61,11 @@ public class OrderServlet extends HttpServlet {
 //        }
     }
 
+    //查询全部订单
     private void querysAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId= "u_1111";
-        List<Orders> notShipped = dao.getUserOrders(userId, "未发货");
-        List<Orders> shipped = dao.getUserOrders(userId, "已发货");
+        List<Orders> notShipped = dao.getUserOrders(userId, "未发货");//未发货的订单
+        List<Orders> shipped = dao.getUserOrders(userId, "已发货");//已发货的订单
         List<Orders> userOrders = dao.getUserOrders(userId, null);//全部订单
 
         request.setAttribute("notShipped", notShipped);
@@ -74,6 +75,7 @@ public class OrderServlet extends HttpServlet {
         request.getRequestDispatcher("/commons/orders.jsp").forward(request, response);
     }
 
+    //显示所有订单（分页后）
     private void showAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String currPage = request.getParameter("currentPage");
         // 判断
@@ -87,17 +89,14 @@ public class OrderServlet extends HttpServlet {
         PageBean<Orders> pageBean = new PageBean<>();
         pageBean.setCurrentPage(currentPage);
 
-        dao.querysAll(pageBean); // 【pageBean已经被dao填充了数据】
-        // 保存pageBean对象，到request域中
-
-        List<Orders> ordersList = pageBean.getPageData();
+        dao.querysAll(pageBean);
 
         request.setAttribute("pageBean", pageBean);
-        request.setAttribute("ordersList", ordersList);
         request.getRequestDispatcher("/admin/order/orderList.jsp").forward(request, response);
 
     }
 
+    //增加订单
     private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = "u_1111";
 
@@ -128,5 +127,16 @@ public class OrderServlet extends HttpServlet {
         shoppingCart.clear();
         request.getSession().setAttribute("shoppingCart", shoppingCart);
         request.getRequestDispatcher("/commons/cartAir.jsp").forward(request, response);
+    }
+
+    //发货
+    private void orderShipping(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        dao.update(request.getParameter("orderId"), "已发货");
+        showAll(request, response);
+    }
+
+    private void OrderReceipt(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        dao.update(request.getParameter("orderId"), "已收货");
+        showAll(request, response);
     }
 }

@@ -27,11 +27,10 @@ public class OrdersImpl implements OrdersDao {
     }
 
     @Override
-    public void update(Orders order) {
-        String sql =" update Order set orderStatus=? " +
-                "where orderID = ?";
+    public void update(String orderId, String status) {
+        String sql =" update Orders set orderStatus=? where orderID = ?";
         try {
-            queryRunner.update(sql, order.getOrderStatus(), order.getOrderId());
+            queryRunner.update(sql, status, orderId);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
