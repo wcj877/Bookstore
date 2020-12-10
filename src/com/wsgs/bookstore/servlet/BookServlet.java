@@ -49,7 +49,8 @@ public class BookServlet extends HttpServlet {
             method1.setAccessible(true);
             method1.invoke(this, request, response);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+
         }
 
     }

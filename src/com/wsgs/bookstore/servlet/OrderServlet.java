@@ -135,8 +135,9 @@ public class OrderServlet extends HttpServlet {
         showAll(request, response);
     }
 
-    private void OrderReceipt(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    //收货
+    private void orderReceipt(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         dao.update(request.getParameter("orderId"), "已收货");
-        showAll(request, response);
+        querysAll(request, response);
     }
 }

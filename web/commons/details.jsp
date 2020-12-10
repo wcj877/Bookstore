@@ -41,7 +41,7 @@
            class="btn btn-primary addToCart" role="button"
             onclick="showAlter('加入购物车')">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 加入购物车</a>
-        <a  href="/BookServlet"
+        <a  href="${pageContext.request.contextPath}/BookServlet?method=addFavorites&amp;bookId=${requestScope.book.bookId}"
                 class="btn btn-primary addToCart" role="button"
                 onclick="showAlter('收藏')">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 收藏 </a>

@@ -106,6 +106,11 @@ function isSihp(){
 	return window.confirm("您确定发货吗？");
 }
 
+
+function isReceipt(){
+	return window.confirm("您确定收货吗？");
+}
+
 /**
  * （使用模式对活框）显示图片
  */ 

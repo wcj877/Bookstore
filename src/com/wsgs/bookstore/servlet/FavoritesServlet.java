@@ -52,7 +52,7 @@ public class FavoritesServlet extends HttpServlet {
      * @param request
      * @param response
      */
-    private void quersAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void querysAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        String id = request.getParameter("userId");
         String id = "u_1111";
         List<Book> favoritesBook = dao.querysAll(id);

@@ -16,9 +16,9 @@ public class FavoritesImpl implements FavoritesDao {
 
     @Override
     public void add(String bookID, String userID) {
-        String sql =" INSERT favorites(bookID, userID) VALUES(?,?)";
+        String sql =" INSERT  favorites(bookID, userID)  VALUES(?,?)";
         try {
-            queryRunner.update(sql, bookID, userID);
+            queryRunner.update(sql, Integer.parseInt(bookID), userID);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -8,13 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f316b879-0b4f-4425-a619-02051288c13d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/OrdersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/OrdersDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrdersImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/OrdersImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/dao/impl/FavoritesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/OrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/book/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/book/book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/classification/classification.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/classification/classification.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/order/orderList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/order/orderList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/public/style/js/page_common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commons/orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/commons/orders.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -251,7 +251,7 @@
       <workItem from="1607586455653" duration="3089000" />
       <workItem from="1607589560134" duration="96000" />
       <workItem from="1607589810699" duration="1642000" />
-      <workItem from="1607591757691" duration="13691000" />
+      <workItem from="1607591757691" duration="16225000" />
     </task>
     <task id="LOCAL-00001" summary="增加头尾">
       <created>1607337553172</created>
@@ -302,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607607312479</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="增加发货功能">
+      <created>1607609527592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607609527592</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +336,8 @@
     <MESSAGE value="调整分页按钮" />
     <MESSAGE value="调整收藏" />
     <MESSAGE value="调整小BUG" />
-    <option name="LAST_COMMIT_MESSAGE" value="调整小BUG" />
+    <MESSAGE value="增加发货功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加发货功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -338,6 +346,16 @@
           <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/entity/ShoppingCart.java</url>
           <line>84</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/FavoritesServlet.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/wsgs/bookstore/servlet/BookServlet.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

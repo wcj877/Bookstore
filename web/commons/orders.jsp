@@ -66,11 +66,11 @@
         </tr>
         <c:forEach items="${requestScope.notShipped}" var="notShipped">
             <tr>
-                <th witdh="10%">${notShipped.orderId}</th>
-                <th witdh="10%">${notShipped.orderTime}</th>
-                <th witdh="10%">${notShipped.totalAmount}</th>
-                <th witdh="15%">${notShipped.total}</th>
-                <th witdh="15%">${notShipped.orderStatus}</th>
+                <th witdh="15%">${notShipped.orderId}</th>
+                <th witdh="20%">${notShipped.orderTime}</th>
+                <th witdh="15%">${notShipped.totalAmount}</th>
+                <th witdh="20%">${notShipped.total}</th>
+                <th witdh="20%">${notShipped.orderStatus}</th>
             </tr>
         </c:forEach>
     </table>
@@ -85,6 +85,7 @@
             <th witdh="10%">总价格</th>
             <th witdh="15%">购买数量</th>
             <th witdh="15%">物流状态</th>
+            <th witdh="15%">操作</th>
         </tr>
         <c:forEach items="${requestScope.shipped}" var="shipped">
             <tr>
@@ -93,6 +94,11 @@
                 <th witdh="10%">${shipped.totalAmount}</th>
                 <th witdh="15%">${shipped.total}</th>
                 <th witdh="15%">${shipped.orderStatus}</th>
+                <th witdh="15%">
+                    <a href="${pageContext.request.contextPath}/OrderServlet?method=orderReceipt&amp;orderId=${shipped.orderId}"
+                                   onclick="return isReceipt();" class="FunctionButton">收货</a>
+                </th>
+
             </tr>
         </c:forEach>
     </table>
