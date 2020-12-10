@@ -1,9 +1,9 @@
 package com.wsgs.bookstore.entity;
 
 public class Favorites {
-    int favoritesID;
-    int bookID;
-    String userID;
+    private int favoritesID;
+    private int bookID;
+    private String userID;
 
     public Favorites() {
     }

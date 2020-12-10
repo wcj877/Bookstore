@@ -82,9 +82,7 @@
     </c:forEach>
 </div>
 
-
 <%@ include file="/commons/public/footer.jsp"%>
-
 
 
 </body>

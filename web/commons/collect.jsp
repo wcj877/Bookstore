@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 87608
@@ -48,16 +49,10 @@
 
 <div id="nav">
     <p style="font-size: 24px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的收藏</p>
-<%--    <ul>--%>
-<%--        <li class="title2"><a href="#">已发货</a></li>--%>
-<%--        <li class="title3"><a href="#">未发货</a></li>--%>
-<%--        <li class="title4"><a href="#">全部订单</a></li>--%>
-<%--    </ul>--%>
 </div>
 
 <table id="ranking">
     <tr>
-        <th witdh="10%">收藏编号 </th>
         <th witdh="10%">书籍 </th>
         <th witdh="10%">书名 </th>
         <th witdh="10%">作者 </th>
@@ -65,59 +60,16 @@
         <th witdh="15%">销量 </th>
     </tr>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
+    <c:forEach items="${requestScope.favorites}" var="favorite">
+        <tr>
+            <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/${favorite}"></a> </th>
+            <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
+            <th witdh="10%"><a href=""> 小泉八云 </a></th>
+            <th witdh="15%">xx </th>
+            <th witdh="15%">xx </th>
+        </tr>
+    </c:forEach>
 
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
-
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
-
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
-
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
-
-    <tr>
-        <th witdh="10%">1 </th>
-        <th witdh="10%"><a href=""><img src="${pageContext.request.contextPath}/style/img/ts1.jpg"></a> </th>
-        <th witdh="15%"><a href=""> 和风译丛:影 </a></th>
-        <th witdh="10%"><a href=""> 小泉八云 </a></th>
-        <th witdh="15%">xx </th>
-        <th witdh="15%">xx </th>
-    </tr>
 </table>
 
 <div id="page">

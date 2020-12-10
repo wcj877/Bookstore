@@ -1,5 +1,6 @@
 package com.wsgs.bookstore.dao;
 
+import com.wsgs.bookstore.entity.Book;
 import com.wsgs.bookstore.entity.Favorites;
 
 import java.util.List;
@@ -25,6 +26,6 @@ public interface FavoritesDao {
      * @param userID
      * @return
      */
-    List<Favorites> querysAll(int userID);
+    List<Book> querysAll(String userID);
 
 }

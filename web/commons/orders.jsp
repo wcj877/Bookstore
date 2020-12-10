@@ -25,8 +25,9 @@
             <a href="" class="dropbtn"> 个人中心</a>
             <ul class="dropdown-content">
                 <li><a href="#">我的账号</a></li>
-                <li><a href="#">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
                 <li><a href="#">账号余额</a></li>
+                <li><a href="${pageContext.request.contextPath}/commons/collect.jsp">收藏</a></li>
                 <li><a href="#">帮助</a></li>
                 <li><a href="#">关于</a></li>
                 <li><a href="#">退出</a></li>
@@ -47,9 +48,11 @@
 </div>
 
 <div id="nav">
+    <p style="font-size: 24px">&nbsp;&nbsp;&nbsp;我的订单</p>
     <ul>
-        <li class="title2"><a href="${pageContext.request.contextPath}/commons/ranking.jsp">我的订单</a></li>
-        <li class="title3"><a href="${pageContext.request.contextPath}/commons/index.jsp">返回首页</a></li>
+        <li class="title2"><a href="#">已发货</a></li>
+        <li class="title3"><a href="#">未发货</a></li>
+        <li class="title4"><a href="#">全部订单</a></li>
     </ul>
 </div>
 

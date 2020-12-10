@@ -19,6 +19,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/mchange-commons-0.2.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/mysql-connector-java-8.0.17.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/standard.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/bli/gson-2.2.4.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="booksaaaaa/web/Web" />

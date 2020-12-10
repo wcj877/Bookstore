@@ -1,6 +1,7 @@
 package com.wsgs.bookstore.dao.impl;
 
 import com.wsgs.bookstore.dao.FavoritesDao;
+import com.wsgs.bookstore.entity.Book;
 import com.wsgs.bookstore.entity.Favorites;
 import com.wsgs.bookstore.utils.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -34,10 +35,10 @@ public class FavoritesImpl implements FavoritesDao {
     }
 
     @Override
-    public List<Favorites> querysAll(int userID) {
-        String sql = "select * from favorites where userID=?";
+    public List<Book> querysAll(String userID) {
+        String sql = "select bookName,writer,intro,price,url from favorites,book where book.bookId=favorites.bookId and userID=?";
         try {
-            return queryRunner.query(sql, new BeanListHandler<Favorites>(Favorites.class), userID);
+            return queryRunner.query(sql, new BeanListHandler<Book>(Book.class), userID);
         } catch (SQLException e) {
             throw new RuntimeException();
         }

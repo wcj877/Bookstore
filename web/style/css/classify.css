@@ -57,6 +57,23 @@ div.shu {
     height: 250px;
     float: left;
 }
+div#TableTail a{
+    display: block;
+    width: 60px;
+    height: 20px;
+    float: left;
+    margin: 0 auto;
+    margin-left: 50px;
+    border: #22B14C 1px dashed;
+}
+div#TableTail a:hover{
+    background: #22B14C;
+    color: white;
+}
+div#TableTail a:nth-child(3){
+    margin-left: 550px;
+}
+
 
 #footer {
     float: left;

@@ -139,6 +139,14 @@ public class BookServlet extends HttpServlet {
         show(request, response);
     }
 
+    /**
+     * 显示图书详情
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+
     private void show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Book book = dao.getBook(request.getParameter("bookId"));
 
@@ -146,11 +154,26 @@ public class BookServlet extends HttpServlet {
         request.getRequestDispatcher("/commons/details.jsp").forward(request, response);
     }
 
+    /**
+     * 删除图书
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         dao.delete(Integer.parseInt(request.getParameter("bookId")));
         this.querysAll(request, response);
     }
 
+    /**
+     * 获取图书详情
+     * 进入后台的图书详情修改页
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void getBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Book book = dao.getBook(request.getParameter("bookId"));
@@ -158,6 +181,13 @@ public class BookServlet extends HttpServlet {
         request.getRequestDispatcher("/admin/book/updatebook.jsp").forward(request, response);
     }
 
+    /**
+     * 获取查询条件的图书
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void querysAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取“当前页”参数； (第一次访问当前页为null)
         String currPage = request.getParameter("currentPage");
@@ -193,6 +223,13 @@ public class BookServlet extends HttpServlet {
         request.getRequestDispatcher("/admin/book/book.jsp").forward(request, response);
     }
 
+    /**
+     * 修改图书信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
@@ -210,6 +247,11 @@ public class BookServlet extends HttpServlet {
         this.querysAll(request, response);
     }
 
+    /**
+     * 增加图书
+     * @param request
+     * @param response
+     */
     private void add(HttpServletRequest request, HttpServletResponse response) {
         Book book = new Book();
 

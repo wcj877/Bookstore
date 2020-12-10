@@ -12,33 +12,34 @@
 
 <div id="banner">
     <ul>
-        <li><a href="regist.jsp"> 注册</a></li>
-        <li><a href="login.jsp"> 登陆</a></li>
+        <li><a href="#"> 注册</a></li>
+        <li><a href="#"> 登陆</a></li>
         <li class="dropdown">
             <a href="" class="dropbtn"> 个人中心</a>
             <ul class="dropdown-content">
                 <li><a href="#">我的账号</a></li>
                 <li><a href="${pageContext.request.contextPath}/commons/orders.jsp">我的订单</a></li>
                 <li><a href="#">账号余额</a></li>
-                <li><a href="${pageContext.request.contextPath}/commons/collect.jsp">收藏</a></li>
+                <li><a href="${pageContext.request.contextPath}/FavoritesServlet?method=querysAll">收藏</a></li>
                 <li><a href="#">帮助</a></li>
                 <li><a href="#">关于</a></li>
                 <li><a href="#">退出</a></li>
             </ul>
         </li>
-        <li><a href="${pageContext.request.contextPath}/commons/cart.jsp"> 购物车</a></li>
+        <li><a href="${pageContext.request.contextPath}/BookServlet?method=showCart"> 购物车</a></li>
         <li><a href=""> 退出</a></li>
     </ul>
 </div>
 
 <div id="find">
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo2.png"></a>
-    <a href="index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo1.png"></a>
+    <a href="${pageContext.request.contextPath}/commons/index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo2.png"></a>
+    <a href="${pageContext.request.contextPath}/commons/index.jsp" title="虫二书屋"><img src="${pageContext.request.contextPath}/style/img/logo1.png"></a>
     <form>
         <input type="text" name="serch_text" size="30" maxlength="20" class="serch_text">
         <input type="button" value="搜索" name="serch" class="serch">
     </form>
 </div>
+</body>
 
 <div id="nav">
     <ul>
@@ -51,12 +52,14 @@
 <div class="type">
     <ul>
         <li>图书分类</li>
+
         <c:forEach items="${applicationScope.classificationList}" var="classification">
             <li>
                 <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&amp;condition=${classification.classificationID}">
                         ${classification.classificationName}
                 </a>
             </li>
+
         </c:forEach>
     </ul>
 </div>
@@ -80,16 +83,15 @@
 
 <div id="TableTail" align="center">
     当前${requestScope.pageBean.currentPage}/${requestScope.pageBean.totalPage}页 &nbsp;&nbsp;
-    <br>
-    <br>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=1">首页</a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.currentPage -1}">上一页 </a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.currentPage +1}">下一页 </a>
     <a href="${pageContext.request.contextPath}/BookServlet?method=querysAll&condition=${applicationScope.classification}&currentPage=${requestScope.pageBean.totalPage}">末页</a>
-    <br>
+</div>
 </div>
 
 <%@ include file="/commons/public/footer.jsp"%>
+
 
 </body>
 </html>
