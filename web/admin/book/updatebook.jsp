@@ -91,7 +91,7 @@
 
         <!-- 表单操作 -->
         <div id="InputDetailBar">
-            <input type="submit" value="添加" class="FunctionButtonInput">
+            <input type="submit" value="修改" class="FunctionButtonInput">
             <a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
         </div>
     </form>
